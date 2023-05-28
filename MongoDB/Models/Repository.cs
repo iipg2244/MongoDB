@@ -30,19 +30,19 @@ namespace MongoDB.Models
         {
             try
             {
-                client = new MongoClient( new MongoClientSettings()
+                client = new MongoClient(new MongoClientSettings()
                 {
                     Scheme = ConnectionStringScheme.MongoDB,
-                    SslSettings = new SslSettings() {EnabledSslProtocols = System.Security.Authentication.SslProtocols.None},
-                    Server = new MongoServerAddress("192.168.1.250", 27017), 
+                    SslSettings = new SslSettings() { EnabledSslProtocols = System.Security.Authentication.SslProtocols.None },
+                    Server = new MongoServerAddress("192.168.1.250", 27017),
                     Credential = MongoCredential.CreateCredential(
                         databaseName: "admin",
                         username: "isaac",
-                        password: "Maquina2244"), 
-                    ConnectTimeout = new TimeSpan(0, 0, 10), 
-                    DirectConnection = true, 
+                        password: "Maquina2244"),
+                    ConnectTimeout = new TimeSpan(0, 0, 5),
+                    DirectConnection = true,
                     ReadPreference = new ReadPreference(ReadPreferenceMode.Primary)
-                });             
+                });
                 db = client.GetDatabase(dataBase);
                 colCiclistas = db.GetCollection<Ciclista>("ciclistas");
                 colEtapas = db.GetCollection<Etapa>("etapas");
@@ -71,17 +71,32 @@ namespace MongoDB.Models
 
         public static List<Ciclista> GetCyclists()
         {
-            return colCiclistas.AsQueryable<Ciclista>().OrderBy(x => x._id).ToList();
+            try
+            {
+                return colCiclistas.AsQueryable<Ciclista>().OrderBy(x => x._id).ToList();
+            }
+            catch (Exception) { }
+            return new List<Ciclista>();
         }
 
         public static List<Equipo> GetTeams()
         {
-            return colEquipos.AsQueryable<Equipo>().OrderBy(x => x._id).ToList();
+            try
+            {
+                return colEquipos.AsQueryable<Equipo>().OrderBy(x => x._id).ToList();
+            }
+            catch (Exception) { }
+            return new List<Equipo>();
         }
 
         public static List<Etapa> GetPhases()
         {
-            return colEtapas.AsQueryable<Etapa>().OrderBy(x => x._id).ToList();
+            try
+            {
+                return colEtapas.AsQueryable<Etapa>().OrderBy(x => x._id).ToList();
+            }
+            catch (Exception) { }
+            return new List<Etapa>();
         }
 
         public static List<Puerto> GetPorts()
