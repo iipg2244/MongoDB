@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:7.0.5
+    env_file:
+      - .env
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD","mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+  mongodb_setup:
+    container_name: mongodb_setup
+    build:
+      context: ./Mongodb_Setup
+      dockerfile: Dockerfile
+      args:
+        - DATABASE_URI=${DATABASE_URI}
+        - USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+        - PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+        - DATABASE_NAME=${MONGO_INITDB_DATABASE}
+    env_file:
+      - .env
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+volumes:
+  mongo-data:
+    driver: local
