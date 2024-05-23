@@ -1,0 +1,21 @@
+{"_id":1,"km":9,"salida":"Valladolid","llegada":"Valladolid", "puertos":[]}
+{"_id":2,"km":180,"salida":"Valladolid","llegada":"Salamanca","puertos":[{"_id":"Sierra Nevada","altura":2500,"categoria":"E","pendiente":6.00}]}
+{"_id":3,"km":240,"salida":"Salamanca","llegada":"Caceres", "puertos":[]}
+{"_id":4,"km":230,"salida":"Almendralejo","llegada":"Córdoba", "puertos":[]}
+{"_id":5,"km":170,"salida":"Córdoba","llegada":"Granada", "puertos":[]}
+{"_id":6,"km":150,"salida":"Granada","llegada":"Sierra Nevada", "puertos":[]}
+{"_id":7,"km":250,"salida":"Baza","llegada":"Alicante", "puertos":[]}
+{"_id":8,"km":40,"salida":"Benidorm","llegada":"Benidorm", "puertos":[]}
+{"_id":9,"km":150,"salida":"Benidorm","llegada":"Valencia", "puertos":[]}
+{"_id":10,"km":200,"salida":"Igualada","llegada":"Andorra","puertos":[{"_id":"Alto del Naranco","altura":565,"categoria":"1","pendiente":6.90},{"_id":"Arcalis","altura":2230,"categoria":"E","pendiente":6.50},{"_id":"Coll de la Comella","altura":1362,"categoria":"1","pendiente":8.07},{"_id":"Coll de Ordino","altura":1980,"categoria":"E","pendiente":5.30}]}
+{"_id":11,"km":195,"salida":"Andorra","llegada":"Estación de Cerler","puertos":[{"_id":"Cerler-Circo de Ampriu","altura":2500,"categoria":"E","pendiente":5.87},{"_id":"Cruz de la Demanda","altura":1850,"categoria":"E","pendiente":7.00}]}
+{"_id":12,"km":220,"salida":"Benasque","llegada":"Zaragoza", "puertos":[]}
+{"_id":13,"km":200,"salida":"Zaragoza","llegada":"Pamplona", "puertos":[]}
+{"_id":14,"km":172,"salida":"Pamplona","llegada":"Alto de la Cruz de la Demanda", "puertos":[]}
+{"_id":15,"km":207,"salida":"Santo Domingo de la Calzada","llegada":"Santander","puertos":[{"_id":"Puerto de Alisas","altura":672,"categoria":"1","pendiente":5.80}]}
+{"_id":16,"km":160,"salida":"Santander","llegada":"Lagos de Covadonga","puertos":[{"_id":"Lagos de Covadonga","altura":1134,"categoria":"E","pendiente":6.86}]}
+{"_id":17,"km":140,"salida":"Cangas de Onis","llegada":"Alto del Naranco", "puertos":[]}
+{"_id":18,"km":195,"salida":"Ávila","llegada":"Ávila","puertos":[{"_id":"Puerto de Mijares","altura":1525,"categoria":"1","pendiente":4.90},{"_id":"Puerto de Navalmoral","altura":1521,"categoria":"2","pendiente":4.30},{"_id":"Puerto de Pedro Bernardo","altura":1250,"categoria":"1","pendiente":4.20}]}
+{"_id":19,"km":190,"salida":"Ávila","llegada":"Destilerias Dyc","puertos":[{"_id":"Navacerrada","altura":1860,"categoria":"1","pendiente":7.50},{"_id":"Puerto de la Morcuera","altura":1760,"categoria":"2","pendiente":6.50}]}
+{"_id":20,"km":52,"salida":"Segovia","llegada":"Destilerias Dyc", "puertos":[]}
+{"_id":21,"km":170,"salida":"Destilerias Dyc","llegada":"Madrid", "puertos":[]}

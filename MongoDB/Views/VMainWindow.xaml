@@ -1,0 +1,133 @@
+<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MongoDB"
+        xmlns:VistaModel="clr-namespace:MongoDB.ViewModels" x:Class="MongoDB.Views.VMainWindow"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MongoDB - Ciclismo" Height="700" Width="1300" MinHeight="700" MinWidth="1300">
+    <Window.DataContext>
+        <VistaModel:VMMainWindow/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="310*"/>
+            <ColumnDefinition Width="270*"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="256*"/>
+            <RowDefinition Height="196*"/>
+            <RowDefinition Height="217*"/>
+        </Grid.RowDefinitions>
+        <TextBox IsEnabled="{Binding Rbc}" HorizontalAlignment="Left" Height="23" Margin="69,10,0,0" Text="{Binding Tb11, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="47" Grid.Column="1" VerticalContentAlignment="Center"/>
+        <TextBox IsEnabled="{Binding Rbc}" HorizontalAlignment="Left" Height="23" Margin="133,10,0,0" Text="{Binding Tb12, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="47" Grid.Column="1" VerticalContentAlignment="Center"/>
+        <TextBox IsEnabled="{Binding Rbc}" HorizontalAlignment="Left" Height="23" Margin="284,10,0,0" Text="{Binding Tb21, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="47" Grid.Column="1" VerticalContentAlignment="Center"/>
+        <TextBox IsEnabled="{Binding Rbc}" Height="23" Margin="349,10,0,0" Text="{Binding Tb22, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="47" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="69,35,0,0" Text="{Binding Tb3, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="112" Grid.Column="1" VerticalContentAlignment="Center" TextWrapping="NoWrap"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="284,35,0,0" Text="{Binding Tb4, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="112" Grid.Column="1" VerticalContentAlignment="Center" TextWrapping="NoWrap"/>
+        <RadioButton x:Name="RbCiclista" Checked="RadioButton_Checked" Unchecked="RadioButton_Checked" IsChecked="{Binding Rbc}"  Content="Ciclista" HorizontalAlignment="Left" Margin="109,70,0,0" VerticalAlignment="Top" Grid.Column="1" Height="15" Width="56"/>
+        <RadioButton IsChecked="{Binding Rbe}"  Content="Equipo" HorizontalAlignment="Left" Margin="193,70,0,0" VerticalAlignment="Top" Grid.Column="1" Height="15" Width="56"/>
+        <Border Margin="10,5,10,0" BorderBrush="Black" BorderThickness="1" Grid.Column="2" Height="58" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton GroupName="Types" IsChecked="{Binding Rbeta}" Content="Etapas" HorizontalAlignment="Left" Margin="6,2,0,0" VerticalAlignment="Top"/>
+                <RadioButton GroupName="Types" IsChecked="{Binding Rbpue}" Content="Puertos" HorizontalAlignment="Left" Margin="6,20,0,0" VerticalAlignment="Top"/>
+                <RadioButton GroupName="Types" IsChecked="{Binding Rbmai}" Content="Maillots" HorizontalAlignment="Left" Margin="6,38,0,0" VerticalAlignment="Top"/>
+                <RadioButton GroupName="Types" IsChecked="{Binding Rbtodo}" Content="Todo" HorizontalAlignment="Left" Margin="98,20,0,0" VerticalAlignment="Top"/>
+                <RadioButton GroupName="Order" IsChecked="{Binding Rbasc}" Content="Ascendente" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <RadioButton GroupName="Order" IsChecked="{Binding Rbdesc}" Content="Descendente" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+            </Grid>
+        </Border>
+        <CheckBox IsChecked="{Binding Ckna}" Content="No asignados" Grid.Column="2" Margin="253,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="93"/>
+        <TextBox Height="23" Margin="110,92,85,0" Text="{Binding N, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Column="3" VerticalContentAlignment="Center"/>
+        <TextBox Height="23" Margin="110,127,30,0" Text="{Binding Salida, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Column="3" VerticalContentAlignment="Center" TextWrapping="NoWrap"/>
+        <TextBox Height="23" Margin="110,162,30,0" Text="{Binding Llegada, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Column="3" VerticalContentAlignment="Center" TextWrapping="NoWrap"/>
+        <TextBox Height="23" Margin="110,197,85,0" Text="{Binding Km, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Column="3" VerticalContentAlignment="Center"/>
+        <Button Click="InsertPhase" Content="Agregar" HorizontalAlignment="Center" Margin="-160,232,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3"/>
+        <Button Click="UpdatePhase" Content="Modificar" HorizontalAlignment="Center" Margin="0,232,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3"/>
+        <Button Click="DeletePhase" Content="Borrar" Margin="160,232,0,0" VerticalAlignment="Top" Grid.Column="3" HorizontalAlignment="Center" Width="75"/>
+        <TextBox IsEnabled="{Binding Rbc}" Height="23" Margin="110,25,85,0" Text="{Binding Dorsal, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1" VerticalContentAlignment="Center"/>
+        <TextBox Height="23" Margin="110,60,30,0" Text="{Binding Nombre, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1" TextWrapping="NoWrap" VerticalContentAlignment="Center"/>
+        <TextBox IsEnabled="{Binding Rbc}" Height="23" Margin="110,95,85,0" Text="{Binding Edad, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1" VerticalContentAlignment="Center"/>
+        <TextBox Height="23" Margin="110,130,30,0" Text="{Binding Equipo, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Row="1" TextWrapping="NoWrap" VerticalContentAlignment="Center"/>
+        <Button Click="InsertCommutator" Content="Agregar" HorizontalAlignment="Center" Margin="-160,165,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+        <Button Click="UpdateCommutator" Content="Modificar" HorizontalAlignment="Center" Margin="0,165,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+        <Button Click="DeleteCommutator" Content="Borrar" HorizontalAlignment="Center" Margin="160,165,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+
+        <DataGrid x:Name="Commutator" Margin="10,92,10,22" ItemsSource="{Binding Commutador}" SelectedItem="{Binding SelectCommutador}" CanUserResizeColumns="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" Grid.RowSpan="3" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Col1}" ClipboardContentBinding="{x:Null}" Width="40"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Col2}" ClipboardContentBinding="{x:Null}" Width="*"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Col3}" ClipboardContentBinding="{x:Null}" Width="40"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Col4}" ClipboardContentBinding="{x:Null}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Name="Phases" Margin="10,92,10,10" CanUserResizeColumns="False" CanUserResizeRows="False" ItemsSource="{Binding Etapas}" SelectedItem="{Binding SelectEtapa}" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" Grid.Column="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="Nº" Width="40"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Start}" ClipboardContentBinding="{x:Null}" Header="Salida" Width="*"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Finish}" ClipboardContentBinding="{x:Null}" Header="Llegada" Width="*"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Distance}" ClipboardContentBinding="{x:Null}" Header="Km" Width="50"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Margin="10,34,10,10" CanUserResizeColumns="False" ItemsSource="{Binding Puertos, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectPuerto}" CanUserResizeRows="False" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="Nom" Width="*"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Height}" ClipboardContentBinding="{x:Null}" Header="Altura" Width="50"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Category}" ClipboardContentBinding="{x:Null}" Header="Categoría" Width="65"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Slope}" ClipboardContentBinding="{x:Null}" Header="Pendiente" Width="70"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Name="Maillots" Margin="10,35,10,22" CanUserResizeColumns="False" CanUserResizeRows="False" ItemsSource="{Binding Maillots}" SelectedItem="{Binding SelectMaillot}" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False" Grid.Row="2" Grid.Column="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="Código" Width="50"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="Nº" Width="40"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Type}" ClipboardContentBinding="{x:Null}" Header="Tipo" Width="*"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Color}" ClipboardContentBinding="{x:Null}" Width="*" Header="Color"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Reward}" ClipboardContentBinding="{x:Null}" Header="Premio" Width="60"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <CheckBox IsEnabled="{Binding Rbc}" IsChecked="{Binding Cka}" Content="Asignar etapa" Grid.Column="3" Margin="24,34,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="99" Grid.Row="1"/>
+        <Grid Margin="10,59,0,101" HorizontalAlignment="Left" Width="243" Grid.Column="3" Grid.Row="1">
+            <RadioButton GroupName="Assign" IsEnabled="{Binding Cka}" IsChecked="{Binding Rbae}" Content="Etapa" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top"/>
+            <RadioButton GroupName="Assign" IsEnabled="{Binding Cka}" IsChecked="{Binding Rbam}" Content="Maillot" HorizontalAlignment="Left" Margin="109,12,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Button IsEnabled="{Binding Cka}" Click="AssignPhase" Content="Asignar" HorizontalAlignment="Left" Margin="24,103,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Grid.Row="1"/>
+        <TextBox Height="23" Margin="110,35,30,0" Text="{Binding Codigo, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" VerticalContentAlignment="Center"/>
+        <TextBox Height="23" Margin="110,70,30,0" Text="{Binding Tipo, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" VerticalContentAlignment="Center" TextWrapping="NoWrap"/>
+        <TextBox Height="23" Margin="110,105,30,0" Text="{Binding Color, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" VerticalContentAlignment="Center" TextWrapping="NoWrap"/>
+        <TextBox Height="23" Margin="110,140,60,0" Text="{Binding Premio, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" VerticalContentAlignment="Center" TextWrapping="NoWrap"/>
+        <Button Click="InsertMaillot" Content="Agregar" HorizontalAlignment="Center" Margin="-160,175,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Grid.Row="2"/>
+        <Button Click="UpdateMaillot" Content="Modificar" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Grid.Row="2"/>
+        <Button Click="DeleteMaillot" Content="Borrar" HorizontalAlignment="Center" Margin="160,175,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Grid.Row="2"/>
+        <Label Content="Seleccione:" HorizontalAlignment="Left" Margin="4,65,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="69"/>
+        <Label Content="Etapas" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.795,0.981" Grid.Column="2" Height="26" Width="44"/>
+        <Label Content="Puertos" HorizontalAlignment="Left" Margin="12,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="7.481,8" Grid.Row="1" Grid.Column="2" Height="26" Width="50"/>
+        <Label Content="Maillots" Margin="12,4,0,0" VerticalAlignment="Top" RenderTransformOrigin="7.481,8" Grid.Row="2" HorizontalAlignment="Left" Width="52" Grid.Column="2" Height="26"/>
+        <Label Content="Dorsal/:" HorizontalAlignment="Left" Margin="4,10,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="51"/>
+        <Label Content="Nombre/*:" HorizontalAlignment="Left" Margin="4,35,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="66"/>
+        <Label Content="|" HorizontalAlignment="Left" Margin="117,8,0,0" VerticalAlignment="Top" Width="15" Grid.Column="1" Height="26"/>
+        <Label Content="Edad/:" HorizontalAlignment="Left" Margin="184,10,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="44"/>
+        <Label Content="|" HorizontalAlignment="Left" Margin="333,8,0,0" VerticalAlignment="Top" Width="15" Grid.Column="1" Height="26"/>
+        <Label Content="Equipo/Director:" HorizontalAlignment="Left" Margin="184,35,0,0" VerticalAlignment="Top" Width="98" Grid.Column="1" Height="26"/>
+        <Label Content="Dorsal/:" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Height="26" Width="51" Grid.Row="1"/>
+        <Label Content="Nombre/*:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="26" Width="66" Grid.Row="1"/>
+        <Label Content="Edad/:" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Height="26" Width="44" Grid.Row="1"/>
+        <Label Content="Equipo/Director:" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="98" Height="26" Grid.Row="1"/>
+        <Label Content="Nº:" HorizontalAlignment="Left" Margin="8,92,0,0" VerticalAlignment="Top" Height="26" Width="51" Grid.Column="3"/>
+        <Label Content="Salida:" HorizontalAlignment="Left" Margin="8,127,0,0" VerticalAlignment="Top" Height="26" Width="66" Grid.Column="3"/>
+        <Label Content="Km:" HorizontalAlignment="Left" Margin="8,197,0,0" VerticalAlignment="Top" Height="26" Width="44" Grid.Column="3"/>
+        <Label Content="Llegada:" HorizontalAlignment="Left" Margin="8,162,0,0" VerticalAlignment="Top" Width="98" Height="26" Grid.Column="3"/>
+        <Label Content="Código:" HorizontalAlignment="Left" Margin="8,35,0,0" VerticalAlignment="Top" Height="26" Width="51" Grid.Column="3" Grid.Row="2"/>
+        <Label Content="Tipo:" HorizontalAlignment="Left" Margin="8,70,0,0" VerticalAlignment="Top" Height="26" Width="66" Grid.Column="3" Grid.Row="2"/>
+        <Label Content="Premio:" HorizontalAlignment="Left" Margin="8,140,0,0" VerticalAlignment="Top" Height="26" Width="51" Grid.Column="3" Grid.Row="2"/>
+        <Label Content="Color:" HorizontalAlignment="Left" Margin="8,105,0,0" VerticalAlignment="Top" Width="51" Height="26" Grid.Column="3" Grid.Row="2"/>
+    </Grid>
+</Window>

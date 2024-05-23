@@ -1,0 +1,2 @@
+FROM liquibase/liquibase:latest
+COPY ["./internal/lib/mongodb-driver-core-5.1.0.jar", "./internal/lib//mongodb-driver-sync-5.1.0.jar", "./internal/lib/bson-5.1.0.jar", "./internal/lib/liquibase-mongodb-4.24.0.jar", "/liquibase/internal/lib/"]

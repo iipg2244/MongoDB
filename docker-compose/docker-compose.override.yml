@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  mongodb:
+    networks:
+      - ApplicationNetwork
+  liquibase:
+    networks:
+      - ApplicationNetwork
+  mongodb_setup:
+    networks:
+      - ApplicationNetwork
+
+# docker network create -d bridge --attachable my-bridge
+# docker network rm -f my-bridge
+networks:
+  ApplicationNetwork:
+    name: my-bridge
+    external: true

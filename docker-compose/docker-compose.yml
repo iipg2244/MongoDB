@@ -1,0 +1,54 @@
+version: '3.4'
+
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:8.0.0-rc4
+    env_file:
+      - .env
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD","mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+  liquibase:
+    container_name: liquibase
+    build:
+      context: ./liquibase_setup
+      dockerfile: Dockerfile
+    volumes:
+      - ../liquibase/changelog:/liquibase/changelog
+    command: --defaults-file=/liquibase/changelog/liquibase.properties update
+    # command: >
+    #   bash -c "liquibase --url="mongodb://mongodb:27017/ciclisme?authSource=admin" --search-path=/ --changelog-file=/liquibase/changelog/Changelog.xml --username="root" --password="password123!" update
+    #   && another command"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+  mongodb_setup:
+    container_name: mongodb_setup
+    build:
+      context: ./mongodb_setup
+      dockerfile: Dockerfile
+      args:
+        - DATABASE_URI=${DATABASE_URI}
+        - USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+        - PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+        - DATABASE_NAME=${MONGO_INITDB_DATABASE}
+    env_file:
+      - .env
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      liquibase:
+        condition: service_completed_successfully
+      
+volumes:
+  mongo-data:
+    driver: local

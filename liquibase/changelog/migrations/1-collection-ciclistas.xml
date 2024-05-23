@@ -1,0 +1,85 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:mongodb="http://www.liquibase.org/xml/ns/mongodb"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+         http://www.liquibase.org/xml/ns/mongodb
+         http://www.liquibase.org/xml/ns/mongodb/liquibase-mongodb-latest.xsd">
+         <changeSet id="collection-ciclistas" author="iipg2244">
+          <mongodb:createCollection collectionName="ciclistas">
+            <mongodb:options>
+                {
+                  validator: {
+                    $jsonSchema: {
+                      bsonType: "object",
+                      required: ["_id", "nombre", "edad", "nomeq", "etapas_g", "maillots_g", "puertos_g"],
+                      properties: {
+                        _id: {
+                          bsonType: "number"
+                        },
+                        nombre: {
+                            bsonType: "string"
+                        },
+                        edad: {
+                            bsonType: "number"
+                        },
+                        nomeq: {
+                            bsonType: "string"
+                        },
+                        etapas_g: {
+                          bsonType: [ "array" ],
+                          items: {
+                            bsonType: "object",
+                            required:["netapa","salida","llegada"],
+                            properties:{
+                              netapa:{
+                                bsonType: "number"
+                              },
+                              salida:{
+                                bsonType: "string"
+                              },
+                              llegada:{
+                                bsonType: "string"
+                              }
+                            }
+                          }
+                        },             
+                        maillots_g: {
+                          bsonType: [ "array" ],
+                          items: {
+                            bsonType: "object",
+                            required:["netapa","codigo"],
+                            properties:{
+                              netapa:{
+                                bsonType: "number"
+                              },
+                              codigo:{
+                                bsonType: "string"
+                              }
+                            }
+                          }
+                        },
+                        puertos_g: {
+                          bsonType: [ "array" ],
+                          items: {
+                            bsonType: "object",
+                            required:["nompuerto"],
+                            properties:{
+                                nompuerto:{
+                                  bsonType: "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  validationAction: "error",
+                  validationLevel: "strict"
+                }
+            </mongodb:options>
+          </mongodb:createCollection>
+        </changeSet>
+</databaseChangeLog>
