@@ -27,7 +27,7 @@ services:
     command: --defaults-file=/liquibase/changelog/liquibase.properties update
     # command: >
     #   bash -c "liquibase --url="mongodb://mongodb:27017/ciclisme?authSource=admin" --search-path=/ --changelog-file=/liquibase/changelog/Changelog.xml --username="root" --password="password123!" update
-    #   && another command"
+    #   && liquibase --url="mongodb://mongodb:27017/ciclisme?authSource=admin" --search-path=/ --changelog-file=/liquibase/changelog/Changelog.xml --username="root" --password="password123!" rollbackCount 2"
     depends_on:
       mongodb:
         condition: service_healthy

@@ -81,5 +81,8 @@
                 }
             </mongodb:options>
           </mongodb:createCollection>
+          <rollback>
+            <mongodb:dropCollection collectionName="ciclistas"/>
+          </rollback>
         </changeSet>
 </databaseChangeLog>

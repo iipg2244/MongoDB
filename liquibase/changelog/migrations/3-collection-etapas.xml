@@ -57,5 +57,8 @@
                 }
             </mongodb:options>
           </mongodb:createCollection>
+          <rollback>
+            <mongodb:dropCollection collectionName="etapas"/>
+          </rollback>
         </changeSet>
 </databaseChangeLog>

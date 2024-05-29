@@ -31,5 +31,8 @@
                 }
             </mongodb:options>
           </mongodb:createCollection>
+          <rollback>
+            <mongodb:dropCollection collectionName="equipos"/>
+          </rollback>
         </changeSet>
 </databaseChangeLog>
