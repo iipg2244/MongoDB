@@ -6,6 +6,12 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
          http://www.liquibase.org/xml/ns/mongodb
          http://www.liquibase.org/xml/ns/mongodb/liquibase-mongodb-latest.xsd">
+         <changeSet id="drop-collection-etapas" author="iipg2244">
+          <preConditions onFail="MARK_RAN">
+            <mongodb:collectionExists collectionName="etapas"/>
+          </preConditions>
+          <mongodb:dropCollection collectionName="etapas"/>
+         </changeSet>
          <changeSet id="collection-etapas" author="iipg2244">
           <mongodb:createCollection collectionName="etapas">
             <mongodb:options>
