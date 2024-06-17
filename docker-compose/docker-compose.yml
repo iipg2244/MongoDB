@@ -28,6 +28,7 @@ services:
     # command: >
     #   bash -c "liquibase --url="mongodb://mongodb:27017/ciclisme?authSource=admin" --search-path=/ --changelog-file=/liquibase/changelog/Changelog.xml --username="root" --password="password123!" update
     #   && liquibase --url="mongodb://mongodb:27017/ciclisme?authSource=admin" --search-path=/ --changelog-file=/liquibase/changelog/Changelog.xml --username="root" --password="password123!" rollbackCount 2"
+    # command: bash -c "sleep 10000000000;"
     depends_on:
       mongodb:
         condition: service_healthy
