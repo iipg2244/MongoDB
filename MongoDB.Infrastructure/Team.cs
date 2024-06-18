@@ -8,6 +8,8 @@ public partial class Team : IIdString
     public string Id { get; set; } = string.Empty;
     [Column("director")]
     public string Manager { get; set; } = string.Empty;
+    [Column("directorBackup")]
+    public string ManagerBackup { get; set; } = string.Empty;
 
     public Team()
     {

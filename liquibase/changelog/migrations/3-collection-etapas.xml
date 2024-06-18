@@ -1,19 +1,17 @@
 <databaseChangeLog
-  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:mongodb="http://www.liquibase.org/xml/ns/mongodb"
-  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
-         http://www.liquibase.org/xml/ns/mongodb
-         http://www.liquibase.org/xml/ns/mongodb/liquibase-mongodb-latest.xsd">
-         <changeSet id="drop-collection-etapas" author="iipg2244">
-          <preConditions onFail="MARK_RAN">
-            <mongodb:collectionExists collectionName="etapas"/>
-          </preConditions>
-          <mongodb:dropCollection collectionName="etapas"/>
-         </changeSet>
-         <changeSet id="collection-etapas" author="iipg2244">
-          <mongodb:createCollection collectionName="etapas">
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mongodb="http://www.liquibase.org/xml/ns/mongodb"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/mongodb http://www.liquibase.org/xml/ns/mongodb/liquibase-mongodb-latest.xsd">
+    <changeSet id="drop-collection-etapas" author="iipg2244">
+        <preConditions onFail="MARK_RAN">
+            <mongodb:collectionExists collectionName="etapas" />
+        </preConditions>
+        <mongodb:dropCollection collectionName="etapas" />
+    </changeSet>
+    <changeSet id="collection-etapas" author="iipg2244">
+        <mongodb:createCollection collectionName="etapas">
             <mongodb:options>
                 {
                   validator: {
@@ -62,9 +60,9 @@
                   validationLevel: "strict"
                 }
             </mongodb:options>
-          </mongodb:createCollection>
-          <rollback>
-            <mongodb:dropCollection collectionName="etapas"/>
-          </rollback>
-        </changeSet>
+        </mongodb:createCollection>
+        <rollback>
+            <mongodb:dropCollection collectionName="etapas" />
+        </rollback>
+    </changeSet>
 </databaseChangeLog>
