@@ -1,22 +1,22 @@
-{"_id":"Amore Vita","director":"Ricardo Padacci"}
-{"_id":"Artiach","director":"José Peréz"}
-{"_id":"Banesto","director":"Miguel Echevarria"}
-{"_id":"Bresciali-Refin","director":"Pietro Armani"}
-{"_id":"Carrera","director":"Luigi Petroni"}
-{"_id":"Castorama","director":"Jean Philip"}
-{"_id":"Euskadi","director":"Pedro Txucaru"}
-{"_id":"Gatorade","director":"Gian Luca Pacceli"}
-{"_id":"Gewiss","director":"Moreno Argentin"}
-{"_id":"Jolly Club","director":"Johan Richard"}
-{"_id":"Kelme","director":"Álvaro Pino"}
-{"_id":"Lotus Festina","director":"Suarez Cuevas"}
-{"_id":"Mapei-Clas","director":"Juan Fernandez"}
-{"_id":"Mercatone Uno","director":"Ettore Romano"}
-{"_id":"Motorola","director":"John Fidwell"}
-{"_id":"Navigare","director":"Lonrenzo Sciacci"}
-{"_id":"ONCE","director":"Manuel Sainz"}
-{"_id":"PDM","director":"Piet Van Der Kruis"}
-{"_id":"Seguros Amaya","director":"Minguez"}
-{"_id":"Telecom","director":"Morgan Reikcard"}
-{"_id":"TVM","director":"Steveens Henk"}
-{"_id":"Wordperfect","director":"Bill Gates"}
+{"_id":"Amore Vita","director":"Ricardo Padacci", "directorBackup":"Ricardo Padacci"}
+{"_id":"Artiach","director":"José Peréz", "directorBackup":"José Peréz"}
+{"_id":"Banesto","director":"Miguel Echevarria", "directorBackup":"Miguel Echevarria"}
+{"_id":"Bresciali-Refin","director":"Pietro Armani", "directorBackup":"Pietro Armani"}
+{"_id":"Carrera","director":"Luigi Petroni", "directorBackup":"Luigi Petroni"}
+{"_id":"Castorama","director":"Jean Philip", "directorBackup":"Jean Philip"}
+{"_id":"Euskadi","director":"Pedro Txucaru", "directorBackup":"Pedro Txucaru"}
+{"_id":"Gatorade","director":"Gian Luca Pacceli", "directorBackup":"Gian Luca Pacceli"}
+{"_id":"Gewiss","director":"Moreno Argentin", "directorBackup":"Moreno Argentin"}
+{"_id":"Jolly Club","director":"Johan Richard", "directorBackup":"Johan Richard"}
+{"_id":"Kelme","director":"Álvaro Pino", "directorBackup":"Álvaro Pino"}
+{"_id":"Lotus Festina","director":"Suarez Cuevas", "directorBackup":"Suarez Cuevas"}
+{"_id":"Mapei-Clas","director":"Juan Fernandez", "directorBackup":"Juan Fernandez"}
+{"_id":"Mercatone Uno","director":"Ettore Romano", "directorBackup":"Ettore Romano"}
+{"_id":"Motorola","director":"John Fidwell", "directorBackup":"John Fidwell"}
+{"_id":"Navigare","director":"Lonrenzo Sciacci", "directorBackup":"Lonrenzo Sciacci"}
+{"_id":"ONCE","director":"Manuel Sainz", "directorBackup":"Manuel Sainz"}
+{"_id":"PDM","director":"Piet Van Der Kruis", "directorBackup":"Piet Van Der Kruis"}
+{"_id":"Seguros Amaya","director":"Minguez", "directorBackup":"Minguez"}
+{"_id":"Telecom","director":"Morgan Reikcard", "directorBackup":"Morgan Reikcard"}
+{"_id":"TVM","director":"Steveens Henk", "directorBackup":"Steveens Henk"}
+{"_id":"Wordperfect","director":"Bill Gates", "directorBackup":"Bill Gates"}
