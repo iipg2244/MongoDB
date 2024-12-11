@@ -31,10 +31,10 @@ public partial class CyclingEntities : DbContext
     {
     }
 
-    public DbSet<Cyclist> Cyclists { get; init; }
-    public DbSet<Phase> Phases { get; init; }
-    public DbSet<Maillot> Maillots { get; init; }
-    public DbSet<Team> Teams { get; init; }
+    public virtual DbSet<Cyclist> Cyclists { get; init; } = null!;
+    public virtual DbSet<Phase> Phases { get; init; } = null!;
+    public virtual DbSet<Maillot> Maillots { get; init; } = null!;
+    public virtual DbSet<Team> Teams { get; init; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
